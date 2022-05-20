@@ -15,11 +15,6 @@ export async function getStaticProps() {
     },
   }
 }
-
-function cn(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
-
 type Image = {
   id: number
   href: string
@@ -28,21 +23,26 @@ type Image = {
   username: string
 }
 
-export default function Gallery({ images }: { images: Image[] }) {
+function cn(...classes: string[]) {
+  return classes.filter(Boolean).join(' ')
+}
+
+export default function Kontakt({ images }: { images: Image[] }) {
   return (
-    <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-      <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-        {images.map((image) => (
-          <BlurImage key={image.id} image={image} />
-        ))}
+    <main className="className={`relative `} h-screen  bg-slate-500 lg:h-[140vh] ">
+      <div className="  mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 ">
+        <div className=" grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
+          {images.map((image) => (
+            <BlurImage key={image.id} image={image} />
+          ))}
+        </div>
       </div>
-    </div>
+    </main>
   )
 }
 
 function BlurImage({ image }: { image: Image }) {
   const [isLoading, setLoading] = useState(true)
-
   return (
     <a href={image.href} className="group">
       <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
