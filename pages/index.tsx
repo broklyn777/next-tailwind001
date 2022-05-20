@@ -7,26 +7,26 @@ const Home: NextPage = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
-        <title>Create Next App</title>
+        <title>Funny</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-  <ul className="hidden space-x-4 md:flex">
-          <li className="headerLink">
-            <Link href="/">/hem</Link>
-          </li>
-          <li className="headerLink">
-            <Link href="/om-oss">/om oss</Link>
-          </li>
-          <li className="headerLink">
-            <Link href="/blogg">/blogg</Link>
-          </li>
-          <li className="headerLink">
-            <Link href="/kontakt">/kontakt</Link>
-          </li>
-          <li className="headerLink">
-            <Link href="/einar">/einar</Link>
-          </li>
-        </ul>
+      <ul className="hidden space-x-4 md:flex">
+        <li className="headerLink">
+          <Link href="/">/hem</Link>
+        </li>
+        <li className="headerLink">
+          <Link href="/om-oss">/om oss</Link>
+        </li>
+        <li className="headerLink">
+          <Link href="/blogg">/blogg</Link>
+        </li>
+        <li className="headerLink">
+          <Link href="/kontakt">/kontakt</Link>
+        </li>
+        <li className="headerLink">
+          <Link href="/einar">/einar</Link>
+        </li>
+      </ul>
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">
           Welcome to{' '}
@@ -101,6 +101,3 @@ const Home: NextPage = () => {
 }
 
 export default Home
-
-
-
