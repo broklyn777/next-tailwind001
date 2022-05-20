@@ -1,11 +1,13 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3009",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^1.35.3",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
