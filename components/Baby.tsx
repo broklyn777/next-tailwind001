@@ -1,8 +1,14 @@
+// import React from 'react'
+
+// const Baby = () => {
+//   return <div>Baby</div>
+// }
+
+// export default Baby
+
 import { createClient } from '@supabase/supabase-js'
-import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react'
-import Layout from '../components/Layout'
 
 export async function getStaticProps() {
   const supabaseAdmin = createClient(
@@ -32,25 +38,13 @@ type Image = {
 
 export default function Kontakt({ images }: { images: Image[] }) {
   return (
-    <>
-      <div>
-        <Head>
-          <title>My page title</title>
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
-        </Head>
-        <Layout />
+    <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+        {images.map((image) => (
+          <BlurImage key={image.id} image={image} />
+        ))}
       </div>
-      <div className="relative mx-auto mt-28  h-[140vh]  max-w-2xl py-16 px-4 sm:py-24  sm:px-6 lg:max-w-7xl lg:px-8">
-        <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3  xl:gap-x-8">
-          {images.map((image) => (
-            <BlurImage key={image.id} image={image} />
-          ))}
-        </div>
-      </div>
-    </>
+    </div>
   )
 }
 

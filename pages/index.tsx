@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import Link from 'next/link'
+import Layout from '../components/Layout'
 
 const Home: NextPage = () => {
   return (
@@ -10,23 +10,8 @@ const Home: NextPage = () => {
         <title>Funny</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ul className="hidden space-x-4 md:flex">
-        <li className="headerLink">
-          <Link href="/">/hem</Link>
-        </li>
-        <li className="headerLink">
-          <Link href="/om-oss">/om oss</Link>
-        </li>
-        <li className="headerLink">
-          <Link href="/blogg">/blogg</Link>
-        </li>
-        <li className="headerLink">
-          <Link href="/kontakt">/kontakt</Link>
-        </li>
-        <li className="headerLink">
-          <Link href="/einar">/einar</Link>
-        </li>
-      </ul>
+      <Layout />
+
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">
           Welcome to{' '}
