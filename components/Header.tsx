@@ -50,6 +50,9 @@ function Header() {
           <li className="headerLink">
             <Link href="/kontakt">/kontakt</Link>
           </li>
+          <li className="headerLink">
+            <Link href="/test">/test</Link>
+          </li>
         </ul>
       </div>
       <div className="flex items-center space-x-4 text-sm font-light text-[#ecb365]">
