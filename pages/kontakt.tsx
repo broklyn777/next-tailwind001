@@ -65,12 +65,12 @@ function BlurImage({ image }: { image: Image }) {
           src={image.imageSrc}
           layout="fill"
           objectFit="cover"
-          className={cn(
-            'duration-700 ease-in-out group-hover:opacity-75',
-            isLoading
-              ? 'scale-110 blur-2xl grayscale'
-              : 'scale-100 blur-0 grayscale-0'
-          )}
+          // className={cn(
+          //   'duration-700 ease-in-out group-hover:opacity-75',
+          //   isLoading
+          //     ? 'scale-110 blur-2xl grayscale'
+          //     : 'scale-100 blur-0 grayscale-0'
+          // )}
           onLoadingComplete={() => setLoading(false)}
         />
       </div>

@@ -2,7 +2,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['bit.ly', "pbs.twimg.com"],
+    domains: ['bit.ly', "image.tmdb.org", "pbs.twimg.com"],
   },
 }
 

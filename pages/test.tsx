@@ -1,83 +1,132 @@
-import { createClient } from '@supabase/supabase-js'
 import Head from 'next/head'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import Banner from '../components/Banner'
 import Layout from '../components/Layout'
-
-export async function getStaticProps() {
-  const supabaseAdmin = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL || '',
-    process.env.SUPABASE_SERVICE_ROLE_KEY || ''
-  )
-
-  const { data } = await supabaseAdmin.from('images').select('*').order('id')
-  return {
-    props: {
-      images: data,
-    },
-  }
-}
-
-function cn(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
-
-type Image = {
-  id: number
-  href: string
-  imageSrc: string
-  name: string
-  username: string
-}
-
-export default function Kontakt({ images }: { images: Image[] }) {
-  return (
-    <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-      <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-        {images.map((image) => (
-          <BlurImage key={image.id} image={image} />
-        ))}
-      </div>
-    </div>
-  )
-}
-
-function BlurImage({ image }: { image: Image }) {
-  const [isLoading, setLoading] = useState(true)
-
+import Services from '../components/Services'
+function Thumbnail() {
   return (
     <>
-      <div>
-        <Head>
-          <title>My page title</title>
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
-        </Head>
-        <Layout />
-      </div>
-      <a href={image.href} className="group">
-        <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-          <Image
-            alt=""
-            src={image.imageSrc}
-            layout="fill"
-            objectFit="cover"
-            className={cn(
-              'duration-700 ease-in-out group-hover:opacity-75',
-              isLoading
-                ? 'scale-110 blur-2xl grayscale'
-                : 'scale-100 blur-0 grayscale-0'
-            )}
-            onLoadingComplete={() => setLoading(false)}
-          />
+      <>
+        <div>
+          <Head>
+            <title>My page title</title>
+            <meta
+              name="viewport"
+              content="initial-scale=1.0, width=device-width"
+            />
+          </Head>
+          <Layout />
         </div>
-        <h3 className="mt-4 text-sm text-gray-700">{image.name}</h3>
-        <p className="mt-1 text-lg font-medium text-gray-900">
-          {image.username}
-        </p>
-      </a>
+
+        <Banner />
+
+        <Services />
+        {/* <div className={styles.service}>
+          <div className={styles.catInfo}></div>
+          <span className={styles.cat}></span>
+          <div className={styles.media}>
+            (
+            <video
+              className={styles.video}
+              src={`/Avocado.mp4`}
+              muted
+              autoPlay
+              loop
+            />
+            ) : (
+            <Image
+              src={`/Avocado.png`}
+              width="100%"
+              height="100%"
+              layout="responsive"
+              objectFit="cover"
+              alt=""
+            />
+            ){'}'}
+          </div>
+        </div> */}
+      </>
+      <div className="relative mx-auto mt-28  h-[140vh]  max-w-2xl py-16 px-4 sm:py-24  sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3  xl:gap-x-8">
+          <div className="relative h-28 min-w-[180px] cursor-pointer transition duration-200 ease-out md:h-36 md:min-w-[260px] md:hover:scale-105">
+            <Image
+              src={`/Avocado.png`}
+              className="rounded-sm object-cover md:rounded"
+              width="100%"
+              height="100%"
+              layout="responsive"
+              objectFit="cover"
+            />
+          </div>
+        </div>
+      </div>
     </>
   )
 }
+
+export default Thumbnail
+
+// import Image from 'next/image'
+
+// function Avatar() {
+//   return (
+//     <Image
+//       src="/static/images/ester-spoke.jpg"
+//       alt="me"
+//       width="64"
+//       height="64"
+//     />
+//   )
+// }
+
+// export default Avatar
+
+// import Image from 'next/image'
+// import Link from 'next/link'
+// import styles from '../styles/Services.module.css'
+
+// const Services = ({ services }) => {
+//   return (
+//     <div className={styles.container}>
+//       <div className={styles.info}>
+//         <h1 className={styles.title}>Vad vi erbjuder!</h1>
+//         <h2 className={styles.subtitle}>
+//           Ett helhetskoncept för att <br />
+//           du ska lyckas digitalt!
+//         </h2>
+//         <div className={styles.services}>
+//           {services.map((service) => (
+//             <Link key={service.id} href={`/products/${service.name}`} passHref>
+//               <div className={styles.service}>
+//                 <div className={styles.catInfo}>{service.desc}</div>
+//                 <span className={styles.cat}>{service.title}</span>
+//                 <div className={styles.media}>
+//                   {service.video ? (
+//                     <video
+//                       className={styles.video}
+//                       src={`/img/${service.video}`}
+//                       muted
+//                       autoPlay
+//                       loop
+//                     />
+//                   ) : (
+//                     <Image
+//                       src={`${process.env.NEXT_PUBLIC_URL}/img/${service.photo}`}
+//                       width="100%"
+//                       height="100%"
+//                       layout="responsive"
+//                       objectFit="cover"
+//                       alt=""
+//                     />
+//                   )}
+//                 </div>
+//               </div>
+//             </Link>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default Services
