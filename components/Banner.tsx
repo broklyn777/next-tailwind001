@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import Image from 'next/image'
 import React from 'react'
 
@@ -10,6 +11,7 @@ const Banner = () => {
           width="200px"
           height="200px"
           src={`/meditating-man.png`}
+          alt="meditation"
         />
       </div>
       <h1 className="text-2xl font-bold  md:text-4xl lg:text-7xl">mr Dev</h1>
