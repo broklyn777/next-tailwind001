@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-undef */
+/* eslint-disable jsx-a11y/alt-text */
 // import React from 'react'
 
 // const Header = () => {
@@ -7,6 +9,7 @@
 // export default Header
 
 import { BellIcon, SearchIcon } from '@heroicons/react/solid'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
@@ -30,7 +33,7 @@ function Header() {
   return (
     <header className={`${isScrolled && 'bg-[#141414]'}`}>
       <div className="flex items-center  space-x-2 md:space-x-10">
-        <img
+        <Image
           src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.79614a5f61617ba49a0891494521226b.svg"
           width={50}
           height={50}

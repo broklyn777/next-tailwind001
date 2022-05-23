@@ -7,7 +7,6 @@ const Banner = () => {
     <div className="flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[75vh] lg:justify-end lg:pb-12">
       <div className="absolute  -z-10 h-[55vh] w-screen">
         <Image
-          layout="fill"
           width="200px"
           height="200px"
           src={`/meditating-man.png`}
